@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: appsmith-ingress
+  namespace: tst
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /app/timeappsmith/login-6798df7ff5166f47bee58ba8
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      set $target_uri $request_uri;
+      if ($request_uri ~ "^/app/timeappsmith/login-6798df7ff5166f47bee58ba8") {
+        set $target_uri /app/timeappsmith/login-6798df7ff5166f47bee58ba8$arg_branch$arg_embed;
+      }
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: time.usedataclap.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: appsmith-service
+            port:
+              number: 8081
+  tls:
+  - hosts:
+      - time.usedataclap.com
+    secretName: usedataclap-tls
+

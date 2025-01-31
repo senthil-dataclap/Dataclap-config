@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: directus-secret
+  namespace: tst
+type: Opaque
+data:
+  ADMIN_EMAIL: "dGltZWFkbWluQGRhdGFjbGFwLmNv"  
+  ADMIN_PASSWORD: "REB0YShsYXBwcm8="  
+  EMAIL_SMTP_USER: "bm9yZXBseUBkYXRhY2xhcGRpZ2l0YWwuY29t"  
+  EMAIL_SMTP_PASSWORD: "MG5iMGFyZCFpbmc="

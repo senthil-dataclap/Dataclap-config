@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appsmith-smtp-config
+  namespace: tst
+data:
+  SMTP_HOST: "smtp.titan.email."
+  SMTP_PORT: "587"
+  SMTP_ENABLED: "true"
+  SMTP_TLS_ENABLED: "true"

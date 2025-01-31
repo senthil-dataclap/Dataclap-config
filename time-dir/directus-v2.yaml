@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: directus-deployment
+  namespace: tst
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: directus
+  template:
+    metadata:
+      labels:
+        app: directus
+    spec:
+      securityContext:
+        runAsUser: 0
+        fsGroup: 0
+      nodeSelector:
+        kubernetes.io/hostname: "worker-nodes-a5f6f06e240d"
+      containers:
+        - name: directus-container
+          image: directus/directus:11.4.0
+          ports:
+            - containerPort: 8055
+          envFrom:
+            - configMapRef:
+                name: directus-config
+            - secretRef:
+                name: directus-secret
+          volumeMounts:
+            - mountPath: /directus/uploads
+              name: directus-data-volume
+              subPath: uploads
+            - mountPath: /directus/database
+              name: directus-data-volume
+              subPath: database
+            - mountPath: /directus/custom_templates
+              name: directus-data-volume
+              subPath: custom_templates
+          resources:
+            limits:
+              memory: "2Gi"
+              cpu: "2000m"
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+      volumes:
+        - name: directus-data-volume
+          hostPath:
+            path: /dir-app/timedirectus  
+            type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: directus-service
+  namespace: tst
+spec:
+  selector:
+    app: directus
+  ports:
+    - protocol: TCP
+      port: 8082
+      targetPort: 8055
+  type: ClusterIP
+
+

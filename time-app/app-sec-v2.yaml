@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: appsmith-smtp-secret
+  namespace: tst
+type: Opaque
+data:
+  SMTP_USERNAME: "bm9yZXBseUBkYXRhY2xhcGRpZ2l0YWwuY29t"
+  SMTP_PASSWORD: "MG5iMGFyZCFpbmc="
+  SMTP_FROM_EMAIL: "bm9yZXBseUBkYXRhY2xhcGRpZ2l0YWwuY29t"
+  SMTP_TO_EMAIL: "dGltZWFkbWluQGRhdGFjbGFwLmNv"

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: directus-config
+  namespace: tst
+data:
+  DB_CLIENT: "sqlite3"
+  DB_FILENAME: "/directus/database/data.db"
+  WEBSOCKETS_ENABLED: "true"
+  EMAIL_SMTP_HOST: "smtp.titan.email"
+  EMAIL_SMTP_PORT: "587"
+  EMAIL_SMTP_POOL: "true"
+  EMAIL_SMTP_SECURE: "false"
+  EMAIL_SMTP_IGNORE_TLS: "true"
+  EMAIL_SMTP_NAME: "Dataclap"
+  EMAIL_VERIFY_SETUP: "true"
+  EMAIL_FROM: "noreply@dataclapdigital.com"
+  EMAIL_FROM_NAME: "Dataclap Timesheet"
+  EMAIL_TRANSPORT: "smtp"
+  EMAIL_TEMPLATES_PATH: "/directus/templates"
+  ACCESS_TOKEN_TTL: "10800"
+
