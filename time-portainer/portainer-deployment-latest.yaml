@@ -75,7 +75,20 @@ spec:
           name: portainer-data
       dnsPolicy: ClusterFirst
       nodeSelector:
-        kubernetes.io/hostname: worker-nodes-a5f6f06e240d
+        kubernetes.io/hostname: You
+8:15 AM
+changed to public repo sir
+Hover over a message to pin it
+keep
+You
+8:42 AM
+updated sir
+Senthil
+9:02 AM
+azure dataops pipeline python and azure synapse
+Senthil
+9:07 AM
+Dataops - Connect python repo and create docker image from python repo and create kubernets pod with kind "Job" with container command executing he pythonprogram. Python program will upload the data to Azure blob storage. Once the data is uploaded to blob storage, use another pip-eline to connect azure synapse to upload this data for data processing modal
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
