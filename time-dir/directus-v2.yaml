@@ -17,7 +17,7 @@ spec:
         runAsUser: 0
         fsGroup: 0
       nodeSelector:
-        kubernetes.io/hostname: "worker-nodes-a5f6f06e240d"
+        kubernetes.io/hostname: "timesheet-workernode-3d5925b611ed"
       containers:
         - name: directus-container
           image: directus/directus:11.4.0
