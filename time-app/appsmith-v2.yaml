@@ -15,7 +15,7 @@ spec:
         app: appsmith
     spec:
       nodeSelector:
-        kubernetes.io/hostname: "worker-nodes-6cb0b740c8a9" 
+        kubernetes.io/hostname: "timesheet-workernode-091f3ddf61a2" 
       containers:
         - name: appsmith-container
           image: appsmith/appsmith-ee  
