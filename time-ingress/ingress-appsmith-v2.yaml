@@ -17,8 +17,4 @@ spec:
             name: appsmith-service
             port:
               number: 8081
-  tls:
-  - hosts:
-      - time.usedataclap.com
-    secretName: usedataclap-tls
 
