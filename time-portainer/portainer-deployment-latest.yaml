@@ -75,7 +75,7 @@ spec:
           name: portainer-data
       dnsPolicy: ClusterFirst
       nodeSelector:
-        kubernetes.io/hostname: You
+        kubernetes.io/hostname: worker-nodes-a5f6f06e240d
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
