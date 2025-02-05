@@ -35,7 +35,7 @@ spec:
             - mountPath: /directus/database
               name: directus-data-volume
               subPath: database
-            - mountPath: /directus/custom_templates
+            - mountPath: /directus/templates
               name: directus-data-volume
               subPath: custom_templates
           resources:
@@ -64,5 +64,3 @@ spec:
       port: 8082
       targetPort: 8055
   type: ClusterIP
-
-
