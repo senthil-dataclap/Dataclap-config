@@ -21,6 +21,7 @@ spec:
       containers:
         - name: directus-container
           image: directus/directus:11.4.0
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8055
           envFrom:
