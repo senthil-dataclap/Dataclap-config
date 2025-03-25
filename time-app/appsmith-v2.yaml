@@ -15,7 +15,7 @@ spec:
         app: appsmith
     spec:
       nodeSelector:
-        kubernetes.io/hostname: "timesheet-workernode-091f3ddf61a2" 
+        kubernetes.io/hostname: "timesheet-workernode-f823920d5fab" 
       containers:
         - name: appsmith-container
           image: appsmith/appsmith-ee  
@@ -24,6 +24,14 @@ spec:
           envFrom:
             - configMapRef:
                 name: appsmith-smtp-config
+          volumeMounts:
+            - mountPath: /appsmith-stacks
+              name: appsmith-data-volume
+      volumes:
+        - name: appsmith-data-volume
+          hostPath:
+            path: /appsmith-app/stacks
+            type: Directory
 
 
 ---
